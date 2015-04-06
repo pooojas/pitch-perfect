@@ -43,8 +43,8 @@
                                 </connections>
                             </button>
                         </subviews>
-                        <color key="backgroundColor" red="0.31598886189999997" green="0.4345079161" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                        <color key="tintColor" red="0.31598886189999997" green="0.4345079161" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="centerX" secondItem="Lt4-lY-hNc" secondAttribute="centerX" id="BQe-nb-M3C"/>
                             <constraint firstItem="yaT-b4-amq" firstAttribute="top" secondItem="Lt4-lY-hNc" secondAttribute="bottom" constant="101" id="Q9y-uB-bHa"/>
@@ -154,8 +154,8 @@
                                 </connections>
                             </button>
                         </subviews>
-                        <color key="backgroundColor" red="0.31598886189999997" green="0.4345079161" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                        <color key="tintColor" red="1" green="1" blue="1" alpha="0.59999999999999998" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="xKG-S9-bj6" firstAttribute="top" secondItem="6Bg-uc-FxB" secondAttribute="bottom" constant="343" id="5cF-2o-RgD"/>
                             <constraint firstAttribute="trailingMargin" secondItem="0Uv-cG-Tdb" secondAttribute="trailing" constant="20" id="608-yZ-cQw"/>
