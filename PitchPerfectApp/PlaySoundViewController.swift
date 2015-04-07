@@ -15,18 +15,9 @@ class PlaySoundViewController: UIViewController {
     var recivedAudio:RecordedAudio!
     var audioEngine:AVAudioEngine!
     var audioFile:AVAudioFile!
-    //var audioPlayerNode : AVAudioPlayerNode!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        /*if var filePath = NSBundle.mainBundle().pathForResource("movie_quote", ofType: "mp3"){
-            var filePathUrl = NSURL.fileURLWithPath(filePath)
-            audioPlayer = AVAudioPlayer(contentsOfURL: filePathUrl, error: nil)
-            audioPlayer.enableRate=true
-        }
-        else{
-            println("file path is missing!")
-        }*/
         audioEngine = AVAudioEngine()
         audioFile = AVAudioFile(forReading: recivedAudio.filePathUrl, error: nil)
         audioPlayer = AVAudioPlayer(contentsOfURL:recivedAudio.filePathUrl , error: nil)
@@ -40,17 +31,6 @@ class PlaySoundViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
     @IBAction func stopPlay(sender: AnyObject) {
         audioPlayer.stop()
     }
@@ -83,16 +63,16 @@ class PlaySoundViewController: UIViewController {
         playAudioWithVariablePitch(-1500)
     }
     @IBAction func playFastAudio(sender: AnyObject) {
-        audioPlayer.stop()
-        //audioPlayerNode.stop()
-        audioPlayer.rate=2.0
-        audioPlayer.currentTime=0.0
-        audioPlayer.play()
+        sound(2.0)
     }
     @IBAction func playSlowSound(sender: AnyObject) {
+        sound(0.5)
+    }
+    
+    func sound(rate: Float){
         audioPlayer.stop()
-        //audioPlayerNode.stop()
-        audioPlayer.rate=0.5
+        audioEngine.reset()
+        audioPlayer.rate=rate
         audioPlayer.currentTime=0.0
         audioPlayer.play()
         

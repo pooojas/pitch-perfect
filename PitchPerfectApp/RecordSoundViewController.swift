@@ -16,6 +16,8 @@ class RecordSoundViewController: UIViewController, AVAudioRecorderDelegate {
     @IBOutlet weak var stopButton: UIButton!
     
     
+    @IBOutlet weak var tap: UILabel!
+    
     @IBOutlet weak var recBtn: UIButton!
     
     var audioRecorder:AVAudioRecorder!
@@ -35,12 +37,14 @@ class RecordSoundViewController: UIViewController, AVAudioRecorderDelegate {
     override func viewWillAppear(animated: Bool) {
     stopButton.hidden=true
     recBtn.enabled=true
+    tap.hidden=false
     }
 
     @IBAction func recordAudio(sender: UIButton) {
         stopButton.hidden=false
         recording.hidden=false
         recBtn.enabled=false
+        tap.hidden=true
         let dirPath = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true)[0] as String
         
         let currentDateTime = NSDate()
@@ -63,15 +67,15 @@ class RecordSoundViewController: UIViewController, AVAudioRecorderDelegate {
     
     func audioRecorderDidFinishRecording(recorder: AVAudioRecorder!, successfully flag: Bool) {
         if(flag){
-        recorderAudio = RecordedAudio()
-        recorderAudio.filePathUrl=recorder.url
-        recorderAudio.title=recorder.url.lastPathComponent
-        self.performSegueWithIdentifier("stopRecording", sender: recorderAudio)
+            
+            recorderAudio = RecordedAudio(filePathUrl:recorder.url,title:recorder.url.lastPathComponent!)
+            self.performSegueWithIdentifier("stopRecording", sender: recorderAudio)
         }
         else{
           println("recording did not finish sucessfully")
             recBtn.enabled=true
             stopButton.hidden=true
+             tap.hidden=true
         }
     }
     
@@ -85,7 +89,6 @@ class RecordSoundViewController: UIViewController, AVAudioRecorderDelegate {
     
     @IBAction func stopRecording(sender: UIButton) {
         recording.hidden=true
-        //recordingButton.enabled=true
         audioRecorder.stop()
         var audioSession = AVAudioSession.sharedInstance()
         audioSession.setActive(false, error: nil)

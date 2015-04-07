@@ -42,12 +42,20 @@
                                     <action selector="stopRecording:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="Cb9-37-hPO"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tap To Record" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="f4H-rk-tI4">
+                                <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.31598886189999997" green="0.4345079161" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="centerX" secondItem="Lt4-lY-hNc" secondAttribute="centerX" id="BQe-nb-M3C"/>
+                            <constraint firstAttribute="centerX" secondItem="f4H-rk-tI4" secondAttribute="centerX" id="Bs4-zQ-mog"/>
                             <constraint firstItem="yaT-b4-amq" firstAttribute="top" secondItem="Lt4-lY-hNc" secondAttribute="bottom" constant="101" id="Q9y-uB-bHa"/>
+                            <constraint firstItem="2fi-mo-0CV" firstAttribute="top" secondItem="f4H-rk-tI4" secondAttribute="bottom" constant="215" id="S4S-XA-ngs"/>
                             <constraint firstAttribute="centerY" secondItem="Lt4-lY-hNc" secondAttribute="centerY" id="YFp-AA-A8G"/>
                             <constraint firstItem="yab-kA-Laq" firstAttribute="top" secondItem="Lt4-lY-hNc" secondAttribute="bottom" constant="130" id="ZIJ-eP-ZBj"/>
                             <constraint firstAttribute="centerX" secondItem="yab-kA-Laq" secondAttribute="centerX" id="yhu-Wu-arr"/>
@@ -58,8 +66,11 @@
                                 <exclude reference="Lt4-lY-hNc"/>
                                 <exclude reference="yaT-b4-amq"/>
                                 <exclude reference="yab-kA-Laq"/>
+                                <exclude reference="f4H-rk-tI4"/>
                             </mask>
                             <mask key="constraints">
+                                <exclude reference="S4S-XA-ngs"/>
+                                <exclude reference="Bs4-zQ-mog"/>
                                 <exclude reference="Q9y-uB-bHa"/>
                                 <exclude reference="zeh-a6-PvQ"/>
                                 <exclude reference="BQe-nb-M3C"/>
@@ -73,8 +84,11 @@
                                 <include reference="Lt4-lY-hNc"/>
                                 <include reference="yaT-b4-amq"/>
                                 <include reference="yab-kA-Laq"/>
+                                <include reference="f4H-rk-tI4"/>
                             </mask>
                             <mask key="constraints">
+                                <include reference="S4S-XA-ngs"/>
+                                <include reference="Bs4-zQ-mog"/>
                                 <include reference="Q9y-uB-bHa"/>
                                 <include reference="zeh-a6-PvQ"/>
                                 <include reference="BQe-nb-M3C"/>
@@ -89,6 +103,7 @@
                         <outlet property="recBtn" destination="Lt4-lY-hNc" id="jHI-Yv-vF9"/>
                         <outlet property="recording" destination="yaT-b4-amq" id="HVR-yr-eQf"/>
                         <outlet property="stopButton" destination="yab-kA-Laq" id="m9C-zb-DaA"/>
+                        <outlet property="tap" destination="f4H-rk-tI4" id="bmO-ib-XEe"/>
                         <segue destination="bi7-oM-iRf" kind="show" identifier="stopRecording" id="Hf8-8F-2Og"/>
                     </connections>
                 </viewController>
