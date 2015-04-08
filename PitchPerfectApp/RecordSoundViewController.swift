@@ -15,13 +15,10 @@ class RecordSoundViewController: UIViewController, AVAudioRecorderDelegate {
     
     @IBOutlet weak var stopButton: UIButton!
     
-    
-    @IBOutlet weak var tap: UILabel!
-    
     @IBOutlet weak var recBtn: UIButton!
     
-    var audioRecorder:AVAudioRecorder!
-    var recorderAudio:RecordedAudio!
+    var audioRecorder: AVAudioRecorder!
+    var recorderAudio: RecordedAudio!
     
     
     override func viewDidLoad() {
@@ -35,16 +32,17 @@ class RecordSoundViewController: UIViewController, AVAudioRecorderDelegate {
     }
 
     override func viewWillAppear(animated: Bool) {
-    stopButton.hidden=true
-    recBtn.enabled=true
-    tap.hidden=false
+        stopButton.hidden=true
+        recBtn.enabled=true
+        recording.hidden=false
+        recording.text="Tap to record"
     }
 
     @IBAction func recordAudio(sender: UIButton) {
         stopButton.hidden=false
         recording.hidden=false
+        recording.text="recording"
         recBtn.enabled=false
-        tap.hidden=true
         let dirPath = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true)[0] as String
         
         let currentDateTime = NSDate()
@@ -75,7 +73,8 @@ class RecordSoundViewController: UIViewController, AVAudioRecorderDelegate {
           println("recording did not finish sucessfully")
             recBtn.enabled=true
             stopButton.hidden=true
-             tap.hidden=true
+            recording.hidden=false
+            recording.text="recording"
         }
     }
     

@@ -33,6 +33,7 @@ class PlaySoundViewController: UIViewController {
     
     @IBAction func stopPlay(sender: AnyObject) {
         audioPlayer.stop()
+        audioEngine.reset()
     }
     @IBAction func playChipmunkAudio(sender: AnyObject) {
         playAudioWithVariablePitch(1500)
